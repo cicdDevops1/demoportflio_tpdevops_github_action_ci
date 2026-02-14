@@ -1,0 +1,21 @@
+<FindBugsFilter>
+    <!-- Ignorer tous ces warnings pour tous les contrôleurs -->
+    <Match>
+        <Or>
+            <Bug pattern="EI_EXPOSE_REP2" />
+            <Bug pattern="UWF_UNWRITTEN_FIELD" />
+            <Bug pattern="NP_UNWRITTEN_FIELD" />
+        </Or>
+        <Class name="~.*controller" />
+    </Match>
+
+
+    <Match>
+        <Or>
+            <Bug pattern="EI_EXPOSE_REP2" />
+          <!-- hh <Bug pattern="UWF_UNWRITTEN_FIELD" /> -->
+           <!-- <Bug pattern="NP_UNWRITTEN_FIELD" />-->
+        </Or>
+        <Class name="~.*service" />
+    </Match>
+</FindBugsFilter>
