@@ -12,15 +12,17 @@ import com.example.demoportflio_tpdevops_github_action_ci.model.Blog;
 
 import com.example.demoportflio_tpdevops_github_action_ci.service.BlogService;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 
 
 @RestController
 @RequestMapping("/{slug}/blogs")
 public class BlogController extends BaseController {
-
+      @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private final BlogService blogService;
 
-
+    
     public BlogController(BlogService blogService, MessageSource messageSource) {
         super(messageSource);
         this.blogService = blogService;

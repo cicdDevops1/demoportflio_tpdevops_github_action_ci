@@ -7,9 +7,11 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 @Configuration
 public class ValidationConfig implements WebMvcConfigurer {
-
+      @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private LocalValidatorFactoryBean validatorFactory;
 
     @Bean

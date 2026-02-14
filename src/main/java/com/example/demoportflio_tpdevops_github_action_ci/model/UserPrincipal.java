@@ -4,12 +4,17 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 import java.util.Collection;
 import java.util.Collections;
 
 
 public class UserPrincipal implements UserDetails {
-
+      @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     private final User users;
     public UserPrincipal(User user) {
         this.users = user;
@@ -49,6 +54,10 @@ public class UserPrincipal implements UserDetails {
     public boolean isEnabled() {
         return UserDetails.super.isEnabled();
     }
+     @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public User getUser() {
         return users; // si tu veux récupérer directement tout l'objet
     }

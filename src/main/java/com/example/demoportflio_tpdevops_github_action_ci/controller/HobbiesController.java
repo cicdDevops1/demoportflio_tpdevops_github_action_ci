@@ -13,12 +13,15 @@ import org.springframework.web.bind.annotation.*;
 import com.example.demoportflio_tpdevops_github_action_ci.model.Hobbies;
 import com.example.demoportflio_tpdevops_github_action_ci.service.HobbiesService;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 
 
 
 @RestController
 @RequestMapping("/{slug}/hobbies")
 public class HobbiesController extends BaseController {
+      @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private final HobbiesService hobbiesService;
 
     public HobbiesController(HobbiesService hobbiesService, MessageSource messageSource) {

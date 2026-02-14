@@ -11,12 +11,14 @@ import com.example.demoportflio_tpdevops_github_action_ci.model.Atout;
 
 import com.example.demoportflio_tpdevops_github_action_ci.service.AtoutService;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 
 
 @RestController
 @RequestMapping("{slug}/atouts")
 public class AtoutController  extends BaseController{
-
+      @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private final AtoutService atoutService;
 
 

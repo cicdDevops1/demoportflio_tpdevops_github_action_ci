@@ -67,15 +67,26 @@ public class ApiExecptionHandler  {
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 
-    private String getLocalizedValidationMessage(FieldError error, Locale locale) {
-        if (error.getDefaultMessage() != null &&
-                error.getDefaultMessage().startsWith("{") &&
-                error.getDefaultMessage().endsWith("}")) {
-            String key = error.getDefaultMessage().substring(1, error.getDefaultMessage().length() - 1);
+   private String getLocalizedValidationMessage(FieldError error, Locale locale) {
+
+    String defaultMessage = error.getDefaultMessage();
+
+    if (defaultMessage != null &&
+            defaultMessage.startsWith("{") &&
+            defaultMessage.endsWith("}")) {
+
+        String key = defaultMessage.substring(1, defaultMessage.length() - 1);
+
+        try {
             return messageSource.getMessage(key, error.getArguments(), locale);
+        } catch (Exception e) {
+            return key; // fallback si clé absente
         }
-        return error.getDefaultMessage();
     }
+
+    return defaultMessage != null ? defaultMessage : "Validation error";
+}
+
 
     private String getLocalizedMessage(String key, Locale locale, Object... args) {
         try {

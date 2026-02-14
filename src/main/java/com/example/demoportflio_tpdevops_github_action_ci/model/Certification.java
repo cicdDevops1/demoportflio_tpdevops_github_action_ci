@@ -158,9 +158,17 @@ public class Certification {
         this.types = types;
     }
 
+       @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public Section getSection() {
         return section;
     }
+     @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public void setSection(Section section) {
         this.section = section;
     }
