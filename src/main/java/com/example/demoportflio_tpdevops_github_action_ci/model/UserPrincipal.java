@@ -6,21 +6,24 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-import java.io.Serializable;
+
 import java.util.Collection;
 import java.util.Collections;
 
 
-public class UserPrincipal implements UserDetails, Serializable  {
+public class UserPrincipal implements UserDetails  {
       @SuppressFBWarnings(
             value = "EI_EXPOSE_REP2",
             justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
     )
    
-    private static final long serialVersionUID = 1L;
+   // private static final long serialVersionUID = 1L;
 
     private transient User users;
-
+     @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public UserPrincipal(User users) {
         this.users = users;
     }
