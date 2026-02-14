@@ -18,7 +18,7 @@ public class UserPrincipal implements UserDetails   {
     )
    
     private static final long serialVersionUID = 1L;
-
+     @SuppressFBWarnings("SE_TRANSIENT_FIELD_NOT_RESTORED")
     private transient User users;
      @SuppressFBWarnings(
             value = "EI_EXPOSE_REP2",
