@@ -11,13 +11,13 @@ import java.util.Collection;
 import java.util.Collections;
 
 
-public class UserPrincipal implements UserDetails  {
+public class UserPrincipal implements UserDetails   {
       @SuppressFBWarnings(
             value = "EI_EXPOSE_REP2",
             justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
     )
    
-   // private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     private transient User users;
      @SuppressFBWarnings(
