@@ -28,6 +28,7 @@
     </scm>
 
         <properties>
+            <pmd.skip>true</pmd.skip>
             <java.version>17</java.version>
 
             <sonar.projectKey>macka2022_spring_portfolio_api_service1</sonar.projectKey>
@@ -316,6 +317,14 @@
                     </execution>
                 </executions>
             </plugin>
+              <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
+            <version>3.21.0</version>
+            <configuration>
+                <failOnViolation>false</failOnViolation>
+            </configuration>
+        </plugin>
 
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>

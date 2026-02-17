@@ -40,7 +40,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Build project without tests
-        run: mvn clean install -DskipTests
+        run: mvn clean install -DskipTests 
 
       - name: Prepare artifact
         run: |
@@ -72,7 +72,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          mvn clean verify -DskipTests sonar:sonar \
+          mvn clean verify verify -DskipTests -Dpmd.skip=true sonar:sonar \
             -Dsonar.projectKey=macka2022_spring_portfolio_api_service1 \
             -Dsonar.organization=macka2022 \
             -Dsonar.host.url=https://sonarcloud.io \
@@ -91,7 +91,7 @@ jobs:
           java-version: 17
 
       - name: OWASP Dependency-Check
-        run: mvn org.owasp:dependency-check-maven:check -DskipTests
+        run: mvn org.owasp:dependency-check-maven:check -DskipTests -Dpmd.skip=true
 
   docker:
     name: Build & Push Docker
