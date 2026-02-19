@@ -31,8 +31,8 @@
             <pmd.skip>true</pmd.skip>
             <java.version>17</java.version>
 
-            <sonar.projectKey>macka2022_spring_portfolio_api_service1</sonar.projectKey>
-            <sonar.organization>macka2022</sonar.organization>
+            <sonar.projectKey>cidevopsgithubaction</sonar.projectKey>
+            <sonar.organization>ciDevopsGithubAction</sonar.organization>
             <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
             <sonar.sources>src/main/java</sonar.sources>
