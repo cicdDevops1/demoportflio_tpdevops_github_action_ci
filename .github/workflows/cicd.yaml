@@ -79,20 +79,13 @@ jobs:
       - name: Build Docker image
         run: |
           BRANCH_TAG=${GITHUB_REF#refs/heads/}
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/{{DOCKER_HUB_NAME}}:$BRANCH_TAG staging/
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/{{secrets.DOCKER_HUB_NAME}}:$BRANCH_TAG staging/
           if [ "$BRANCH_TAG" == "main" ]; then
-            docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/{{DOCKER_HUB_NAME}}:main \
-                       ${{ secrets.DOCKER_HUB_USERNAME }}/{{DOCKER_HUB_NAME}}:latest
+            docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/{{secrets.DOCKER_HUB_NAME}}:main \
+                       ${{ secrets.DOCKER_HUB_USERNAME }}/{{secrets.DOCKER_HUB_NAME}}:latest
           fi
 
-      - name: Push Docker image
-        run: |
-          BRANCH_TAG=${GITHUB_REF#refs/heads/}
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/{{DOCKER_HUB_NAME}}:$BRANCH_TAG
-          if [ "$BRANCH_TAG" == "main" ]; then
-            docker push ${{ secrets.DOCKER_HUB_USERNAME }}/{{DOCKER_HUB_NAME}}:latest
-          fi
-
+      
   deploy:
     name: Deployment
     runs-on: ubuntu-latest
