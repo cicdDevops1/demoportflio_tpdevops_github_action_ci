@@ -61,10 +61,10 @@ jobs:
     needs: [build]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: package-final
       - name : show download artifact directory
@@ -79,10 +79,10 @@ jobs:
       - name: Build Docker image
         run: |
           BRANCH_TAG=${GITHUB_REF#refs/heads/}
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/{{secrets.DOCKER_HUB_NAME}}:$BRANCH_TAG staging/
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/${{secrets.DOCKER_HUB_NAME}}:$BRANCH_TAG staging/
           if [ "$BRANCH_TAG" == "main" ]; then
-            docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/{{secrets.DOCKER_HUB_NAME}}:main \
-                       ${{ secrets.DOCKER_HUB_USERNAME }}/{{secrets.DOCKER_HUB_NAME}}:latest
+            docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/${{secrets.DOCKER_HUB_NAME}}:main \
+                       ${{ secrets.DOCKER_HUB_USERNAME }}/${{secrets.DOCKER_HUB_NAME}}:latest
           fi
 
       
