@@ -29,11 +29,9 @@ public class SecurityConfig {
      private  JwtFilter jwtFilter;
      @Autowired
     private UserDetailsService userDetailsService;
-
     //public SecurityConfig(UserDetailsService userDetailsService) {
       //  this.userDetailsService = userDetailsService;
    // }
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
       return   http
@@ -57,7 +55,6 @@ public class SecurityConfig {
                                           .build();
                                         // .authorizeHttpRequests(authorizeRequests ->authorizeRequests.anyRequest().authenticated())
                                         // .formLogin(Customizer.withDefaults())
-
     }
 
    /* @Bean
