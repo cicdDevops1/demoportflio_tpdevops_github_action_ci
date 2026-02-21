@@ -78,7 +78,6 @@ jobs:
       - name: Build Docker image
         run: |
           BRANCH_TAG=${GITHUB_REF#refs/heads/}
-
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/${{secrets.DOCKER_HUB_NAME}}:$BRANCH_TAG staging/
 
           if [ "$BRANCH_TAG" = "main" ]; then
