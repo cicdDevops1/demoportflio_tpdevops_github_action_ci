@@ -79,8 +79,7 @@ jobs:
         run: |
           BRANCH_TAG=${GITHUB_REF#refs/heads/}
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/${{secrets.DOCKER_HUB_NAME}}:$BRANCH_TAG staging/
-
-          if [ "$BRANCH_TAG" = "main" ]; then
+          if [ "$BRANCH_TAG" = "dev" ]; then
             docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/${{secrets.DOCKER_HUB_NAME}}:$BRANCH_TAG \
                       ${{ secrets.DOCKER_HUB_USERNAME }}/${{secrets.DOCKER_HUB_NAME}}:latest
           fi
