@@ -91,17 +91,17 @@ jobs:
           
           echo "Tag utilisé: $BRANCH_TAG"
           
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_NAME }}:$BRANCH_TAG staging/
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/devops-lab-01-ci:$BRANCH_TAG staging/
           
           # Ne taguer "latest" que pour main
           if [ "$BRANCH_TAG" = "main" ]; then
-            docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_NAME }}:$BRANCH_TAG \
-                      ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_NAME }}:latest
+            docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/devops-lab-01-ci:$BRANCH_TAG \
+                      ${{ secrets.DOCKER_HUB_USERNAME }}/devops-lab-01-ci:latest
           fi
           
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_NAME }} --all-tags
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/devops-lab-01-ci --all-tags
 
   deploy:
     name: Deployment
