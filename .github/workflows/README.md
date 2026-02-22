@@ -41,3 +41,7 @@ Il permet de démontrer :
 ```bash
 git clone https://github.com/cicdDevops1/demoportflio_tpdevops_github_action_ci
 cd demoportflio_tpdevops_github_action_ci
+
+
+
+![!\[alt text\](image.png)](<images/Capture d’écran 2026-02-22 224730.png>)
