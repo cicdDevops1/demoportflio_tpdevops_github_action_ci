@@ -79,11 +79,11 @@ jobs:
       - name: Build Docker image
         run: |
           BRANCH_TAG=${GITHUB_REF#refs/heads/}
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/${{secrets.DOCKER_HUB_NAME}}:$BRANCH_TAG staging/
-          if [ "$BRANCH_TAG" = "main" ]; then
-            docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/${{secrets.DOCKER_HUB_NAME}}:$BRANCH_TAG \
-                      ${{ secrets.DOCKER_HUB_USERNAME }}/${{secrets.DOCKER_HUB_NAME}}:latest
-          fi
+          echo "Branch tag: '$BRANCH_TAG'"
+          echo "Full tag: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_NAME }}:$BRANCH_TAG"
+          BRANCH_TAG=$(echo "$BRANCH_TAG" | sed 's/[^a-zA-Z0-9._-]/-/g')
+            
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_NAME }}:$BRANCH_TAG staging/
 
       
   deploy:
