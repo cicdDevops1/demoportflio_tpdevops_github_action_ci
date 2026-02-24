@@ -19,19 +19,19 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 @RequestMapping("{slug}/atouts")
 public class AtoutController  extends BaseController{
       @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
-    private final AtoutService atoutService;
+    private final AtoutService atoutServices;
 
 
     public AtoutController(AtoutService atoutService, MessageSource messageSource) {
         super(messageSource);
-        this.atoutService = atoutService;
+        this.atoutServices = atoutService;
 
     }
 
     @GetMapping("/lists")
     public ResponseEntity<Object> listAtout(@RequestParam(name = "lang", required = false) String lang, @PathVariable String slug) {
         return buildResponse(
-                "atout.list-success" , atoutService.getAllSkills(slug)  ,lang,
+                "atout.list-success" , atoutServices.getAllSkills(slug)  ,lang,
                 HttpStatus.OK
         );
     }
@@ -41,7 +41,7 @@ public class AtoutController  extends BaseController{
     public ResponseEntity<Object> addAtout(@Valid @RequestBody Atout atout,
                                            @RequestParam(name = "lang", required = false) String lang, @PathVariable String slug) {
         return buildResponse(
-                "atout.create-success" ,  atoutService.addAtout(atout) ,lang,
+                "atout.create-success" ,  atoutServices.addAtout(atout) ,lang,
                 HttpStatus.OK
         );
     }
@@ -50,7 +50,7 @@ public class AtoutController  extends BaseController{
     public ResponseEntity<Object> getAtoutById(@PathVariable Long id,
                                                @RequestParam(name = "lang", required = false) String lang, @PathVariable String slug) {
         return buildResponse(
-                "atout.detail-success" ,atoutService.getAtoutById(id)  ,lang,
+                "atout.detail-success" ,atoutServices.getAtoutById(id)  ,lang,
                 HttpStatus.OK
 
         );
@@ -61,7 +61,7 @@ public class AtoutController  extends BaseController{
     public ResponseEntity<Object> updateAtout(@Valid @RequestBody Atout atout,
                                               @RequestParam(name = "lang", required = false) String lang, @PathVariable String slug) {
         return buildResponse(
-                "atout.update-success" , atoutService.updateAtout(atout)  ,lang,
+                "atout.update-success" , atoutServices.updateAtout(atout)  ,lang,
                 HttpStatus.OK
 
         );
@@ -72,7 +72,7 @@ public class AtoutController  extends BaseController{
     public ResponseEntity<Object> deleteAtout(@PathVariable Long id,
                                               @RequestParam(name = "lang", required = false) String lang, @PathVariable String slug) {
         return buildResponse(
-                "atout.delete-success" ,atoutService.deleteAtout(id)  ,lang,
+                "atout.delete-success" ,atoutServices.deleteAtout(id)  ,lang,
                 HttpStatus.OK
 
         );
