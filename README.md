@@ -42,6 +42,40 @@ Il permet de démontrer :
 git clone https://github.com/cicdDevops1/demoportflio_tpdevops_github_action_ci
 cd demoportflio_tpdevops_github_action_ci
 
+### 2️. Build Maven
+
+mvn clean package
+
+### 2️. Build Maven
+
+java -jar target/*.jar
+
+### 3️ Lancer l'application
+
+java -jar app.jar
+
+Docker
+Build image
+
+docker build -t devops-lab-01-ci
+
+Run container
+
+docker run -p 8080:8080 devops-lab-01-ci
+
+CI/CD
+
+Le pipeline GitHub Actions :
+
+Se déclenche sur toutes les branches
+
+Push l’image Docker avec un tag dynamique
+
+Tag "latest" uniquement pour main
+
+Déploie uniquement depuis main
+
+Images
 
 
-![!\[alt text\](image.png)](<images/Capture d’écran 2026-02-22 224730.png>)
+![alt text](images/image-1.png)
