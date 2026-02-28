@@ -43,15 +43,16 @@ git clone https://github.com/cicdDevops1/demoportflio_tpdevops_github_action_ci
 cd demoportflio_tpdevops_github_action_ci
 
 ### 2️. Build Maven
+```bash
 
 mvn clean package
-
+```
 ### 2️. Build Maven
 
 java -jar target/*.jar
 
 ### 3️ Lancer l'application
-
+```bash
 java -jar app.jar
 
 Docker
@@ -62,6 +63,7 @@ docker build -t devops-lab-01-ci
 Run container
 
 docker run -p 8080:8080 devops-lab-01-ci
+```
 
 CI/CD
 
