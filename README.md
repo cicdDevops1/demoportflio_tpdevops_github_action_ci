@@ -120,7 +120,7 @@ Push vers Docker Hub
 Déploie uniquement depuis main
 
 ## Structure du projet
-![alt text](https://github.com/cicdDevops1/demoportflio_tpdevops_github_action_ci/blob/main/images/image-2.png)
+![alt text](https://github.com/devops-masterlab/demoportflio_tpdevops_github_action_ci/blob/main/images/image-2.png)
 ## Améliorations futures
 
 ✔ Tests unitaires 
@@ -145,4 +145,4 @@ Push et créer une Pull Request
 Images de pipline
 
 
-![alt text](https://github.com/cicdDevops1/demoportflio_tpdevops_github_action_ci/blob/main/images/image-1.png)
+![alt text](https://github.com/devops-masterlab/demoportflio_tpdevops_github_action_ci/blob/main/images/image-1.png)
